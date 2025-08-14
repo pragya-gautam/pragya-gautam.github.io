@@ -58,12 +58,27 @@
 </section>
 <script>
   const speechText = `Hello, I am Pragya Gautam, Senior Member of Technical Staff at Oracle. I work on large-scale database architectures, query optimization, and cutting-edge features like AI vector search. Some of my projects include SQL Optimizer support for AI vector search, Autonomous features in ExaCC DB, and SQL enhancements in Oracle 23c.`;
+
   document.getElementById('speakBtn').addEventListener('click', () => {
     const utterance = new SpeechSynthesisUtterance(speechText);
     utterance.pitch = 1;
-    utterance.rate = 1;
+    utterance.rate = 0.85; // slower speed
+
+    const voices = speechSynthesis.getVoices();
+    const femaleVoice = voices.find(voice => voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('woman') || voice.name.toLowerCase().includes('google uk english female'));
+    if (femaleVoice) {
+      utterance.voice = femaleVoice;
+    }
+
     speechSynthesis.speak(utterance);
   });
+
+  // Ensure voices are loaded before trying to pick one
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = () => {
+      const voices = speechSynthesis.getVoices();
+    };
+  }
 </script>
 </body>
 </html>
