@@ -7,15 +7,20 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <style>
   body { font-family: Arial, sans-serif; background: #0b1020; color: #e5e7eb; margin: 0; padding: 0; }
-  header, section { padding: 20px; max-width: 1000px; margin: auto; }
-  header { background: #121a2b; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; }
-  h1 { color: #0ea5e9; }
+  header, section { padding: 20px; max-width: 1100px; margin: auto; }
+  header { background: #121a2b; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; z-index: 50; }
+  h1 { color: #0ea5e9; margin: 0; }
   nav a { color: #e5e7eb; margin-left: 15px; text-decoration: none; }
   nav a:hover { color: #22d3ee; }
   .model-container { display: flex; flex-direction: column; align-items: center; margin-top: 20px; }
   model-viewer { width: 300px; height: 400px; background: transparent; border: 1px solid #444; border-radius: 10px; }
   button { padding: 10px 20px; background: #0ea5e9; color: #fff; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
   button:hover { background: #22d3ee; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .card { background: #121a2b; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+  .card:hover { transform: translateY(-5px); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag { background: rgba(14,165,233,0.2); padding: 4px 8px; border-radius: 8px; font-size: 12px; color: #38bdf8; border: 1px solid rgba(14,165,233,0.4); }
 </style>
 </head>
 <body>
@@ -38,18 +43,32 @@
 </section>
 <section id="projects">
 <h2>Projects</h2>
-<ul>
-<li>SQL Optimizer Support for AI Vector Search — Implements vector indexes affecting execution plans via cost-based optimization.</li>
-<li>Query Optimization & Performance — Continuous monitoring to detect regressions, wrong results, and crashes using traces and query reports.</li>
-<li>Autonomous Features in ExaCC DB — Auto indexing, partitioning, compression, statistics, and in-memory features triggered based on workload.</li>
-<li>DB Capture & Replay — Safely tests changes by replaying production workloads on test systems.</li>
-<li>SQL Support for Boolean Datatype — Implemented Boolean datatype in Oracle 23c with RDBMS object, PL/SQL, and cross-feature support.</li>
-<li>SQL Support for Table Value Constructor — Introduced VALUES clause in Oracle 23c for concise ad-hoc SQL.</li>
-</ul>
+<div class="cards">
+<div class="card"><h3>SQL Optimizer Support for AI Vector Search</h3><p>Implements vector indexes affecting execution plans via cost-based optimization.</p></div>
+<div class="card"><h3>Query Optimization & Performance</h3><p>Continuous monitoring to detect regressions, wrong results, and crashes using traces and query reports.</p></div>
+<div class="card"><h3>Autonomous Features in ExaCC DB</h3><p>Auto indexing, partitioning, compression, statistics, and in-memory features triggered based on workload.</p></div>
+<div class="card"><h3>DB Capture & Replay</h3><p>Safely tests changes by replaying production workloads on test systems.</p></div>
+<div class="card"><h3>SQL Support for Boolean Datatype</h3><p>Implemented Boolean datatype in Oracle 23c with RDBMS object, PL/SQL, and cross-feature support.</p></div>
+<div class="card"><h3>SQL Support for Table Value Constructor</h3><p>Introduced VALUES clause in Oracle 23c for concise ad-hoc SQL.</p></div>
+</div>
 </section>
 <section id="skills">
 <h2>Skills</h2>
-<p>Oracle, RDBMS, SQL, PL/SQL, Python, Bash, Perl, Linux, OCI, Git, Docker</p>
+<div class="card">
+<div class="tags">
+<span class="tag">Oracle</span>
+<span class="tag">RDBMS</span>
+<span class="tag">SQL</span>
+<span class="tag">PL/SQL</span>
+<span class="tag">Python</span>
+<span class="tag">Bash</span>
+<span class="tag">Perl</span>
+<span class="tag">Linux</span>
+<span class="tag">OCI</span>
+<span class="tag">Git</span>
+<span class="tag">Docker</span>
+</div>
+</div>
 </section>
 <section id="contact">
 <h2>Contact</h2>
@@ -71,17 +90,14 @@
   document.getElementById('speakBtn').addEventListener('click', () => {
     const utterance = new SpeechSynthesisUtterance(speechText);
     utterance.pitch = 1;
-    utterance.rate = 0.85; // slower speed
-
+    utterance.rate = 0.85;
     const voices = speechSynthesis.getVoices();
     const femaleVoice = voices.find(voice => voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('woman') || voice.name.toLowerCase().includes('google uk english female'));
     if (femaleVoice) {
       utterance.voice = femaleVoice;
     }
-
     utterance.onstart = () => startLipSync();
     utterance.onend = () => stopLipSync();
-
     speechSynthesis.speak(utterance);
   });
 
