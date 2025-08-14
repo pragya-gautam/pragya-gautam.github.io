@@ -13,7 +13,7 @@
   nav a { color: #e5e7eb; margin-left: 15px; text-decoration: none; }
   nav a:hover { color: #22d3ee; }
   .model-container { display: flex; flex-direction: column; align-items: center; margin-top: 20px; }
-  model-viewer { width: 300px; height: 400px; background: transparent; }
+  model-viewer { width: 300px; height: 400px; background: transparent; border: 1px solid #444; border-radius: 10px; }
   button { padding: 10px 20px; background: #0ea5e9; color: #fff; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
   button:hover { background: #22d3ee; }
 </style>
@@ -32,7 +32,7 @@
 <h2>About Me</h2>
 <p>Senior Member of Technical Staff at Oracle, based in Bangalore, India. Experienced in large-scale Oracle DB architectures (RAC, non-RAC, multitenant, autonomous), query optimization, SQL execution, autonomous features, and vector databases. Skilled in Linux servers, shell scripting, Perl, XML, Python, and CI/CD pipelines.</p>
 <div class="model-container">
-<model-viewer src="ZuckHead.glb" alt="3D avatar of Pragya" auto-rotate camera-controls></model-viewer>
+<model-viewer src="./ZuckHead.glb" alt="3D avatar of Pragya" auto-rotate camera-controls ar ar-modes="webxr scene-viewer quick-look" exposure="1" environment-image="neutral"></model-viewer>
 <button id="speakBtn">Let Me Introduce Myself</button>
 </div>
 </section>
