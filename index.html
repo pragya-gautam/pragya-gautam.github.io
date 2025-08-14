@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pragya Gautam — Portfolio</title>
+<meta name="description" content="Pragya Gautam — Senior Member of Technical Staff at Oracle. Portfolio, projects, experience, and contact." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='54' font-family='Arial' fill='white'%3EP%3C/text%3E%3C/svg%3E"/>
+<style>
+:root {
+  --bg: #0b1020;
+  --panel: #121a2b;
+  --text: #e5e7eb;
+  --brand: #0ea5e9;
+  --brand-2: #22d3ee;
+}
+body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
+header { background: var(--panel); padding: 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; }
+header h1 { margin: 0; color: var(--brand); }
+nav a { color: var(--text); margin-left: 15px; text-decoration: none; }
+nav a:hover { color: var(--brand-2); }
+section { padding: 20px; max-width: 1000px; margin: auto; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.project { background: var(--panel); padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); transition: transform 0.3s; }
+.project:hover { transform: translateY(-5px); }
+.tag { background: var(--brand); padding: 5px 10px; border-radius: 999px; font-size: 12px; margin: 2px; display: inline-block; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { display: inline-block; padding: 10px 15px; border-radius: 5px; background: var(--brand); color: white; text-decoration: none; margin-top: 10px; }
+.btn:hover { background: var(--brand-2); }
+footer { padding: 20px; text-align: center; background: var(--panel); color: var(--text); margin-top: 40px; }
+</style>
+</head>
+<body>
+<header>
+<h1>Pragya Gautam</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<section id="about">
+<h2>About Me</h2>
+<p>Senior Member of Technical Staff at Oracle, based in Bangalore, India. Experienced in large-scale Oracle DB architectures (RAC, non-RAC, multitenant, autonomous), query optimization, SQL execution, autonomous features, and vector databases. Skilled in Linux servers, shell scripting, Perl, XML, Python, and CI/CD pipelines.</p>
+</section>
+<section id="projects">
+<h2>Projects</h2>
+<div class="project-grid">
+<div class="project"><h3>SQL Optimizer Support for AI Vector Search</h3><p>Implements vector indexes affecting execution plans via cost-based optimization.</p></div>
+<div class="project"><h3>Query Optimization & Performance</h3><p>Continuous monitoring to detect regressions, wrong results, and crashes using traces and query reports.</p></div>
+<div class="project"><h3>Autonomous Features in ExaCC DB</h3><p>Auto indexing, partitioning, compression, statistics, and in-memory features triggered based on workload.</p></div>
+<div class="project"><h3>DB Capture & Replay</h3><p>Safely tests changes by replaying production workloads on test systems.</p></div>
+<div class="project"><h3>SQL Support for Boolean Datatype</h3><p>Implemented Boolean datatype in Oracle 23c with RDBMS object, PL/SQL, and cross-feature support.</p></div>
+<div class="project"><h3>SQL Support for Table Value Constructor</h3><p>Introduced VALUES clause in Oracle 23c for concise ad-hoc SQL.</p></div>
+</div>
+</section>
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+<span class="tag">Oracle</span><span class="tag">RDBMS</span><span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Perl</span><span class="tag">Linux</span><span class="tag">OCI</span><span class="tag">Git</span><span class="tag">Docker</span>
+</div>
+</section>
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: <a class="btn" href="mailto:pragya.gautam28@gmail.com">pragya.gautam28@gmail.com</a></p>
+<p><a class="btn" href="https://www.linkedin.com/in/pragya-gautam-82b59b15b/">LinkedIn</a></p>
+</section>
+<footer>
+<p>&copy; 2025 Pragya Gautam</p>
+</footer>
+</body>
+</html>
