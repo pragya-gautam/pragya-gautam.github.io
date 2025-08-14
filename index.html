@@ -32,7 +32,7 @@
 <h2>About Me</h2>
 <p>Senior Member of Technical Staff at Oracle, based in Bangalore, India. Experienced in large-scale Oracle DB architectures (RAC, non-RAC, multitenant, autonomous), query optimization, SQL execution, autonomous features, and vector databases. Skilled in Linux servers, shell scripting, Perl, XML, Python, and CI/CD pipelines.</p>
 <div class="model-container">
-<model-viewer src="./ZuckHead.glb" alt="3D avatar of Pragya" auto-rotate camera-controls ar ar-modes="webxr scene-viewer quick-look" exposure="1" environment-image="neutral"></model-viewer>
+<model-viewer id="avatar" src="./ZuckHead.glb" alt="3D avatar of Pragya" auto-rotate camera-controls ar ar-modes="webxr scene-viewer quick-look" exposure="1" environment-image="neutral"></model-viewer>
 <button id="speakBtn">Let Me Introduce Myself</button>
 </div>
 </section>
@@ -57,7 +57,16 @@
 <p>LinkedIn: <a href="https://www.linkedin.com/in/pragya-gautam-82b59b15b/">linkedin.com/in/pragya-gautam-82b59b15b</a></p>
 </section>
 <script>
+  const avatar = document.getElementById('avatar');
   const speechText = `Hello, I am Pragya Gautam, Senior Member of Technical Staff at Oracle. I work on large-scale database architectures, query optimization, and cutting-edge features like AI vector search. Some of my projects include SQL Optimizer support for AI vector search, Autonomous features in ExaCC DB, and SQL enhancements in Oracle 23c.`;
+
+  function startLipSync() {
+    avatar.setAttribute('animation-name', 'Talk');
+  }
+
+  function stopLipSync() {
+    avatar.removeAttribute('animation-name');
+  }
 
   document.getElementById('speakBtn').addEventListener('click', () => {
     const utterance = new SpeechSynthesisUtterance(speechText);
@@ -70,10 +79,12 @@
       utterance.voice = femaleVoice;
     }
 
+    utterance.onstart = () => startLipSync();
+    utterance.onend = () => stopLipSync();
+
     speechSynthesis.speak(utterance);
   });
 
-  // Ensure voices are loaded before trying to pick one
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = () => {
       const voices = speechSynthesis.getVoices();
